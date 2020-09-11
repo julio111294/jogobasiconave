@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1>Ola mundo</h1>
+    <script>
+        var nome = prompt("qual e o seu nome ? ")
+        document.write("seu nome em maiusculo e " + nome.toLocaleUpperCase())
+        var n1 = parseInt(prompt("digite um numero"))
+        var n2 = parseInt(prompt("dgite o sugundo numero "))
+        var n3 = n1 + n2;
+        document.write('a soms de ${n1} +${n2}' + n3.toFixed(2).replace('.', ',') + n3.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }))
+    </script>
+
+</body>
+
+</html>

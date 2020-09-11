@@ -6,6 +6,11 @@ var jogador;
 var velocidade;
 var px, py;
 var w, h;
+var contadorbomas;
+var telacontadoradebombas;
+var totalbombsd = 50;
+var vida = 50;
+var criabomba;
 
 function pressed() {
 
@@ -66,6 +71,7 @@ document.addEventListener("keyup", releasse);
 
 function game() {
     jogo = true;
+    //
     //x = 0;
     //y = 0;
     w = window.innerWidth;
@@ -76,6 +82,9 @@ function game() {
     jogador = document.getElementById('nav');
     jogador.style.top = py + "px";
     jogador.style.left = px + "px";
+    clearInterval(criabomba);
+    criabomba = setInterval(bombas, 1700);
+
     loop();
 
 
@@ -83,8 +92,11 @@ function game() {
 
 function loop() {
     if (jogo == true) {
+
         movernave();
         tiromovimento();
+        controlandobombas();
+
 
     }
     frame = requestAnimationFrame(loop);
@@ -123,6 +135,42 @@ function tiromovimento() {
                 tiros[i].remove();
 
             }
+
+        }
+
+    }
+}
+
+function bombas() {
+    var bx = Math.random() * w;
+    var by = 0;
+    if (jogo) {
+        var bomba = document.createElement("div");
+        var b1 = document.createAttribute("class");
+        var b2 = document.createAttribute("style");
+        b1.value = "b";
+        b2.value = "top:" + by + "px;left:" + bx + "px";
+        bomba.setAttributeNode(b1);
+        bomba.setAttributeNode(b2);
+        document.body.appendChild(bomba);
+        contadorbomas--;
+
+
+    }
+}
+
+function controlandobombas() {
+    totalbombsd = document.getElementsByClassName("b");
+    var tam = totalbombsd.length;
+    for (var i = 0; i <= tam; i++) {
+        if (jogo) {}
+        var bi = totalbombsd[i].offsetTop;
+        bi += 3;
+        totalbombsd[i].style.top = bi + "px";
+        if (bi > h) {
+            vida - 10;
+            totalbombsd[i].remove();
+
 
         }
 

@@ -1,0 +1,12 @@
+body {
+    background-color: aqua;
+}
+
+#a {
+    position: absolute;
+    width: 50px;
+    background-color: blue;
+    height: 50px;
+    color: white;
+    background-image: url(../spacevaider/a.jpg);
+}
